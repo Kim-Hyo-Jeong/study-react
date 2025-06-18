@@ -1,6 +1,14 @@
 # 🌐 React
+
+## Index
+- [Chapter 00. 공부 준비](#chapter-00-공부-준비)
+- [Chapter 01. React 소개](#chapter-01-react-소개)
+- [Chapter 02. JSX](#chapter-02-jsx)
+- [Chapter 03. 컴포넌트](#chapter-03-컴포넌트)
+---
+
 ## Chapter 00. 공부 준비
-> 인프런 강의 : [실무 중심! FE 입문자를 위한 React](https://www.inflearn.com/course/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%8B%A4%EB%AC%B4%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%A0%9C%EC%9E%91%ED%95%98%EA%B8%B0/dashboard)
+> 인프런 강의 : 🔗 [실무 중심! FE 입문자를 위한 React](https://www.inflearn.com/course/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%8B%A4%EB%AC%B4%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%A0%9C%EC%9E%91%ED%95%98%EA%B8%B0/dashboard)
 
 ---
 
@@ -87,16 +95,117 @@
     <input type="text" />
 </div>
 ```
-- 🔎 [실습 코드 링크](https://codesandbox.io/p/sandbox/2-1-29k09)
+- 🔗 [실습 코드 링크](https://codesandbox.io/p/sandbox/2-1-29k09)
 
 ---
 
 ### 2-2. JSX에서 JavaScript 사용하기
-- 🔎 [실습 코드 링크](https://codesandbox.io/p/sandbox/2-2-d23bt)
+- 🔗 [실습 코드 링크](https://codesandbox.io/p/sandbox/2-2-d23bt)
 
 ---
 
 ### 2-3. JSX에서의 조건문
-- 🔎 [실습 코드 링크](https://codesandbox.io/p/sandbox/2-3-qeb7z)
+- 🔗 [실습 코드 링크](https://codesandbox.io/p/sandbox/2-3-qeb7z)
 
 ---
+
+### 2-4. JSX에서의 반복문
+- 🔗 [실습 코드 링크](https://codesandbox.io/s/2-4-uv16i)
+
+---
+
+### 2-5. JSX 스타일링
+- 🔗 [실습 코드 링크](https://codesandbox.io/p/sandbox/2-5-tkgtq)
+
+---
+
+### 2-6. JSX로 구구단 출력하기
+- 🔗 [실습 코드 링크](https://codesandbox.io/s/2-6-silseub-bjv3c)
+
+---
+
+## Chapter 03. 컴포넌트
+### 3-1. 컴포넌트란?
+#### 🔎 컴포넌트
+- 스스로 상태를 관리하는 `캡슐화된 코드 조각`
+
+#### 🔎 컴포넌트 만들기
+- 지금까지 했던 JSX와의 차이
+  - 컴포넌트는 기본적으로 함수이기 때문에 자신만의 고유한 로직이 들어갈 수 있음
+  - 스스로 상태를 가질 수 있음 (상태가 변하면 알아서 반영됨)
+
+- import, export
+  - es6에서 모듈을 불러오고 내보내는 방법
+  - 🔗 [실습 코드 링크](https://codesandbox.io/s/3-1-x5rc1)
+
+#### 🔎 컴포넌트 생성 시 주의사항
+- 컴포넌트 이름은 `PascalCase`로 만듦
+  - PascalCase : 각 단어의 첫 문장을 대문자로 적는 규칙
+    - ex. MyComponent, ArticlePage, UserProfile
+
+- 컴포넌트는 의미 단위로 쪼개서 파일을 분리함
+
+- 최상위 컴포넌트 이름은 일반적으로 App임
+  - index.js : entry point. 최종 컴포넌트를 DOM에 render (ReactDOM.render)
+  - App.js : 모든 컴포넌트들의 root 컴포넌트
+
+---
+
+### 3-2. Props
+#### 🔎 Props란?
+- 부모 컴포넌트에서 자식 컴포넌트로 내려주는 데이터
+```js
+function App() {
+    return (
+        <div>
+            <MyComponent value={'test'}/>
+        </div>
+    );
+}
+
+function MyComponent(props) {
+    return <div>{props.value}</div>;
+}
+```
+
+#### 🔎 Props.children
+- 컴포넌트 태그로 감싼 값이 props.children으로 전달됨
+```js
+function App() {
+    return(
+        <div>
+            <MyComponent>
+                <h1>value</h1>
+            </MyComponent>
+        </div>
+    );
+}
+
+function MyComponent(props) {
+    return <div>{props.children}</div>
+}
+```
+
+#### 🔎 Props 활용 팁
+- 구조분해할당 구문 활용
+- 특정 Props에 기본값 지정 가능 (defaultProps)
+- Props는 읽기 전용임
+- 🔗 [실습 코드 링크](https://codesandbox.io/s/3-2-uiqd9)
+
+---
+
+### 3-3. State
+#### 🔎 State란?
+- 컴포넌트 내부에서 사용되는 변수
+  - State 값이 변하면 컴포넌트가 리렌더링됨
+  - 렌더링 사이클에서 값이 보존됨
+```js
+function App() {
+    const [value, setValue] = useState(0);
+
+    return (
+        <div>{value}</div>
+    );
+}
+```
+- 🔗 [실습 코드 링크](https://codesandbox.io/p/sandbox/3-3-mcfei)
