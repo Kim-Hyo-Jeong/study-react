@@ -15,7 +15,7 @@
 }
 
 .mainBtn {
-    background-color: #403d3d;
+    background-color: #313131;
     color: #fff;
     font-weight: bold;
     padding: 14px 20px;
@@ -39,7 +39,9 @@
 }
 
 .subBtn {
-    background-color: #ffffff;
+    background-color: #525252;
+    color: #fff;
+    font-weight: bold;
     padding: 10px 16px;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -51,7 +53,7 @@
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .subBtn:hover {
-    background-color: #f5f5f5;
+    background-color: #414141;
     border-color: #bbb;
 }
 
